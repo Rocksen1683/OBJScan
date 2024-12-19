@@ -63,6 +63,11 @@
 			path = OBJScanUITests;
 			sourceTree = "<group>";
 		};
+		F7AFDE082D14D0BB0070C9B0 /* Docs */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Docs;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +98,7 @@
 		F749A75E2D134DB90016D17C = {
 			isa = PBXGroup;
 			children = (
+				F7AFDE082D14D0BB0070C9B0 /* Docs */,
 				F749A7692D134DB90016D17C /* OBJScan */,
 				F749A77A2D134DBB0016D17C /* OBJScanTests */,
 				F749A7842D134DBB0016D17C /* OBJScanUITests */,
@@ -128,6 +134,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				F749A7692D134DB90016D17C /* OBJScan */,
+				F7AFDE082D14D0BB0070C9B0 /* Docs */,
 			);
 			name = OBJScan;
 			packageProductDependencies = (
