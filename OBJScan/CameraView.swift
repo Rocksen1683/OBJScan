@@ -1,13 +1,28 @@
 import SwiftUI
 import AVFoundation
 
-// UIViewRepresentable to display the camera feed
 struct CameraView: UIViewRepresentable {
+    @ObservedObject var viewModel: ObjectDetectionViewModel
+
+    class Coordinator: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
+        var parent: CameraView
+
+        init(parent: CameraView) {
+            self.parent = parent
+        }
+
+        func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+            parent.viewModel.processFrame(sampleBuffer: sampleBuffer)
+        }
+    }
+
     class CameraViewContainer: UIView {
         var captureSession: AVCaptureSession?
         var previewLayer: AVCaptureVideoPreviewLayer?
+        var delegate: AVCaptureVideoDataOutputSampleBufferDelegate?
 
-        override init(frame: CGRect) {
+        init(frame: CGRect, delegate: AVCaptureVideoDataOutputSampleBufferDelegate) {
+            self.delegate = delegate
             super.init(frame: frame)
             setupCamera()
         }
@@ -18,23 +33,27 @@ struct CameraView: UIViewRepresentable {
         }
 
         func setupCamera() {
+            guard let delegate = delegate else { return }
             guard let camera = AVCaptureDevice.default(for: .video),
                   let input = try? AVCaptureDeviceInput(device: camera) else {
                 return
             }
 
-            // Set up the session
             captureSession = AVCaptureSession()
             captureSession?.sessionPreset = .high
             captureSession?.addInput(input)
 
-            // Set up the preview layer
+            let videoOutput = AVCaptureVideoDataOutput()
+            videoOutput.setSampleBufferDelegate(delegate, queue: DispatchQueue(label: "videoQueue"))
+            if captureSession?.canAddOutput(videoOutput) == true {
+                captureSession?.addOutput(videoOutput)
+            }
+
             previewLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
             previewLayer?.videoGravity = .resizeAspectFill
             previewLayer?.frame = bounds
             layer.addSublayer(previewLayer!)
 
-            // Start running the session
             captureSession?.startRunning()
         }
 
@@ -44,19 +63,21 @@ struct CameraView: UIViewRepresentable {
         }
     }
 
-    func makeUIView(context: Context) -> CameraViewContainer {
-        return CameraViewContainer()
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(parent: self)
     }
 
-    func updateUIView(_ uiView: CameraViewContainer, context: Context) {
-        // No updates needed for now
+    func makeUIView(context: Context) -> CameraViewContainer {
+        return CameraViewContainer(frame: .zero, delegate: context.coordinator)
     }
+
+    func updateUIView(_ uiView: CameraViewContainer, context: Context) {}
 }
 
 // SwiftUI Preview
 struct CameraView_Previews: PreviewProvider {
     static var previews: some View {
-        CameraView()
+        CameraView(viewModel: ObjectDetectionViewModel())
     }
 }
 

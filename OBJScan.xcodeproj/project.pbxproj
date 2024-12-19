@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F7AFDE072D14C6210070C9B0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F7AFDE062D14C6140070C9B0 /* README.md */; };
+		F7AFDE152D14DEA80070C9B0 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F7AFDE142D14DEA20070C9B0 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,10 +33,11 @@
 		F749A7772D134DBB0016D17C /* OBJScanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OBJScanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F749A7812D134DBB0016D17C /* OBJScanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OBJScanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7AFDE062D14C6140070C9B0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F7AFDE142D14DEA20070C9B0 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		F749A7952D134FFD0016D17C /* Exceptions for "OBJScan" folder in "OBJScan" target */ = {
+		F7AFDE132D14DD870070C9B0 /* Exceptions for "OBJScan" folder in "OBJScan" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -48,7 +50,7 @@
 		F749A7692D134DB90016D17C /* OBJScan */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				F749A7952D134FFD0016D17C /* Exceptions for "OBJScan" folder in "OBJScan" target */,
+				F7AFDE132D14DD870070C9B0 /* Exceptions for "OBJScan" folder in "OBJScan" target */,
 			);
 			path = OBJScan;
 			sourceTree = "<group>";
@@ -66,6 +68,11 @@
 		F7AFDE082D14D0BB0070C9B0 /* Docs */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Docs;
+			sourceTree = "<group>";
+		};
+		F7AFDE0D2D14DB060070C9B0 /* Models */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -98,6 +105,8 @@
 		F749A75E2D134DB90016D17C = {
 			isa = PBXGroup;
 			children = (
+				F7AFDE142D14DEA20070C9B0 /* .gitignore */,
+				F7AFDE0D2D14DB060070C9B0 /* Models */,
 				F7AFDE082D14D0BB0070C9B0 /* Docs */,
 				F749A7692D134DB90016D17C /* OBJScan */,
 				F749A77A2D134DBB0016D17C /* OBJScanTests */,
@@ -135,6 +144,7 @@
 			fileSystemSynchronizedGroups = (
 				F749A7692D134DB90016D17C /* OBJScan */,
 				F7AFDE082D14D0BB0070C9B0 /* Docs */,
+				F7AFDE0D2D14DB060070C9B0 /* Models */,
 			);
 			name = OBJScan;
 			packageProductDependencies = (
@@ -238,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7AFDE152D14DEA80070C9B0 /* .gitignore in Resources */,
 				F7AFDE072D14C6210070C9B0 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
