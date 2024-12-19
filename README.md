@@ -1,7 +1,7 @@
-# Object Detection to STL Converter App 📱➜🛠️
+# OBJScan 📱➜🛠️
 
 ## **Project Overview**  
-This iOS application allows users to detect objects using the device camera and convert them into **3D STL files** for 3D printing or modeling. The app integrates real-time object detection, 3D mesh generation, and export functionalities.
+OBJScan is an iOS application that allows users to detect objects using the device camera and convert them into **3D STL files** for 3D printing or modeling. The app integrates real-time object detection, 3D mesh generation, and export functionalities.
 
 ---
 
@@ -18,9 +18,8 @@ This iOS application allows users to detect objects using the device camera and 
 ---
 
 ## **Architecture**  
-<!---->
-<!--### High-Level Diagram  -->
-<!--![Architecture Diagram](Docs/architecture-diagram.png)-->
+### High-Level Diagram  
+![Architecture Diagram](Docs/architecture-diagram.png)
 
 ### **Components**  
 1. **UI Layer**:  
